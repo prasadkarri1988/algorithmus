@@ -74,6 +74,9 @@ public class ArrayRotation {
 	public static void main(String args[]) {
 		int[] a = { 3, 8, 9, 7, 6 };
 		int k = 3;
-		solution(a, k);
+		a = solution(a, k);
+		for(int c:a) {
+			System.out.print(c+" ");
+		}
 	}
 }
