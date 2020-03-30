@@ -1,5 +1,6 @@
 package algorithmus.test.com;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -46,3 +47,61 @@ public class SmallestPositiveInteger {
 		return 1;
 	}
 }
+
+
+public class SmallestPositiveInteger {
+
+	public static int solution(int[] A) {
+		Arrays.sort(A);
+		int missingNumber = 1, i = 0,status=0;
+
+		if (A.length == 1) {
+			if (A[0] > 1) {
+				return 1;
+			} else {
+				if (A[0] < 1) {
+					return 1;
+				} else {
+					return A[0] + 1;
+				}
+			}
+
+		}
+
+		for (i = 0; i < A.length; i++) {
+			if(A[i]<1) {
+				status=2;
+				continue;
+			}
+			if (A[i] == missingNumber) {
+				status=1;
+				continue;
+			} else {
+				if(status==0) {
+					return missingNumber;
+				}
+				if (missingNumber!= A[i]) {
+					return missingNumber;
+				} else {
+					return missingNumber + 1;
+				}
+			}
+		}
+		if (i == A.length &&  status!=2) {
+			return missingNumber + 1;
+		}
+
+		return missingNumber;
+	}
+
+	
+	public static void main(String args[]) {
+		int[] a = {1,2};
+		int i = solution(a);
+		System.out.println(i);
+	}
+}
+
+
+
+
